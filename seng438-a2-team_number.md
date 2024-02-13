@@ -37,7 +37,8 @@ Since some of these methods use the Values2D and KeyedValues interfaces, we'll u
 # 3 Test cases developed
 
 **org.jfree.data.Range()**
-package org.jfree.data.test;
+
+package org.jfree.data.test; 
 
 import static org.junit.Assert.*; import org.jfree.data.Range; import org.junit.*;
 
@@ -67,11 +68,11 @@ public class RangeTest {
     }
     @Test
     public void centralValueShouldBeSevenPointFive() {
-        assertEquals("The central value of -1 and 1 should be 0", 7.5, posrange.getCentralValue(), .000000001d);
+        assertEquals("The central value of 5 and 10 should be 0", 7.5, posrange.getCentralValue(), .000000001d);
     }
     @Test
     public void centralValueShouldBeNegSevenPointFive() {
-        assertEquals("The central value of -1 and 1 should be 0", -7.5, negrange.getCentralValue(), .000000001d);
+        assertEquals("The central value of -10 and 5 should be 0", -7.5, negrange.getCentralValue(), .000000001d);
     }
 
     
@@ -139,6 +140,13 @@ public class RangeTest {
     public static void tearDownAfterClass() throws Exception {
     }
 }
+
+From the test suite above, we can see that:
+- centralValueShouldBeZero(), centralValueShouldBeSevenPointFive(), and centralValueShouldBeNegSevenPointFive() make up one equivalence class, since they all test the same method (getCentralValue()).
+- lowerValueShouldBeNegOne(), lowerValueShouldBeFive(), and lowerValueShouldBeNegTen() make up the equivalence class for **getLowerBound()*.
+- upperValueShouldBeOne(), upperValueShouldBeTen(), and upperValueShouldBeNegFive() make up the equivalence class for **getUpperBound()*.
+- legnthShouldBeTwo(), and legnthShouldBeFive() make up the equivalence class for **getLength()*.
+
 
 
 **org.jfree.data.DataUtilities**
