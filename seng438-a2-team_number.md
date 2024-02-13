@@ -23,7 +23,8 @@ Starting with **org.jfree.data.Range*, we plan to test the following methods:
 - **getLength()**: Returns the length of the range.
 - **contains()**: Returns true if the specified value is within the range and false otherwise.
 
-We'll create three Range objects, one with a negative and positive number, one with two positive numbers, and one with two negative numbers. These three instances make up all the distinct partitions needed to test the methods above. So we'll have three test cases for all five methods, with each test case using one of the three Range objects to call them.
+We'll create three Range objects, one with a negative and positive number, one with two positive numbers, and one with two negative numbers. These three objects cover all the distinct partitions and boundary values 
+needed to test the methods above. So we'll have three test cases for all five methods, with each test case using one of the three Range objects to call them.
 
 Then we'll make a test suite for all five methods in **org.jfree.data.DataUtilities*:
 - **calculateColumnTotal(Values2D data, int column)**: Returns the sum of the values in one column of the supplied data table.
@@ -142,6 +143,7 @@ public class RangeTest {
 }
 
 From the test suite above, we can see that:
+
 - centralValueShouldBeZero(), centralValueShouldBeSevenPointFive(), and centralValueShouldBeNegSevenPointFive() make up one equivalence class, since they all test the same method (getCentralValue()).
 - lowerValueShouldBeNegOne(), lowerValueShouldBeFive(), and lowerValueShouldBeNegTen() make up the equivalence class for **getLowerBound()*.
 - upperValueShouldBeOne(), upperValueShouldBeTen(), and upperValueShouldBeNegFive() make up the equivalence class for **getUpperBound()*.
@@ -536,20 +538,32 @@ public class DataUtilitiesTest extends DataUtilities {
 }
 
 
-Text…
+For this test suite we can see that:
 
-// write down the name of the test methods and classes. Organize the based on
-the source code method // they test. identify which tests cover which partitions
-you have explained in the test strategy section //above
+- calculateColumnTotalForTwoValues(), calculateColumnTotalForFiveValues(), calculateColumnTotalOfEmptyTable(), calculateColumnTotalWithOutOfBoundIndex(), and calculateColumnTotalWithInvalidDataObject() make up the equivalence class for the **calculateColumnTotal()* method.
+
+- calculateRowTotalForTwoValues(), calculateRowTotalForFiveValues(), calculateRowTotalOfEmptyTable(), calculateRowTotalWithOutOfBoundIndex(), and calculateRowTotalWithInvalidDataObject() make up the equivalence class for the **calculateRowTotal()* method.
+
+- testCreateNumberArrayNormalCase(), testCreateNumberArrayEmptyArray(), testCreateNumberArrayNullCase(), testCreateNumberArraySingleElement(), testCreateNumberArrayLargeArray(), and testCreateNumberArraySpecialValues() make up the equivalence class for the **createNumberArray()* method.
+
+- testCreateNumberArray2DNormalCase(), testCreateNumberArray2DEmptyArray(), testCreateNumberArray2DSubArrayEmpty(), testCreateNumberArray2DNullCase(), and testCreateNumberArray2DSingleElement() make up the equivalence class for the **createNumberArray2D()* method.
+
+- testGetCumulativePercentagesNormalCase(), testGetCumulativePercentagesEmptyCase(), testGetCumulativePercentagesNullCase(), and testGetCumulativePercentagesSingleElement() make up the equivalence class for the **getCumulativePercentages()* method.
+
+As shown above, these test cases cover all the necessary boundary value,invalid input and edge cases needed to perform proper BlackBox testing as mentioned in the lectures.
+
 
 # 4 How the team work/effort was divided and managed
 
-Text…
+As the we were given 20 methods, we decided to split the methods into 4 so that each group member is able to practice using JUnit. Members were given freedom to practice as many tests for the methods provided as they would like but were mandated to perform their own sections of testing. As such, we came together to choose the best test case options.
+
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
-Text…
+We had difficulities in scheduling and organizing an in-person meeting so we concluded on discussing the assignemnt through chat and remote options. We learned that we should stick to remote options to prevent delay in completion of the assignment due to scheduling conflicts.
+
 
 # 6 Comments/feedback on the lab itself
 
-Text…
+The lab was extensive in teaching us how to implement automated unit testing from the creation of Junit tests using eclipse. We were able to put into practice, previous knowledge and newly discovered information on automated unit testing using Junit and create different methods. We were able to explore and apply different concepts of automated testing in real-world scenarios.
+
